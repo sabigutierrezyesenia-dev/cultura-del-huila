@@ -1,0 +1,970 @@
+:root {
+  --green-dark: #123d29;
+  --green: #1d6540;
+  --green-light: #dfece3;
+  --yellow: #e4a62a;
+  --yellow-light: #f5d37b;
+  --cream: #faf7ef;
+  --white: #ffffff;
+  --text: #292929;
+  --gray: #666666;
+  --shadow: 0 15px 40px rgba(0,0,0,0.09);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  color: var(--text);
+  background: var(--cream);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+a {
+  font-family: inherit;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(12px);
+  transition: 0.3s;
+}
+
+.navbar {
+  max-width: 1200px;
+  height: 76px;
+  margin: auto;
+  padding: 0 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  text-decoration: none;
+  color: var(--green-dark);
+  font-size: 25px;
+  font-weight: 800;
+}
+
+.logo span {
+  color: var(--yellow);
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 27px;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.nav-menu a:hover {
+  color: var(--yellow);
+}
+
+.menu-button {
+  display: none;
+  border: none;
+  background: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: var(--green-dark);
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 120px 25px 70px;
+
+  background-image:
+    url("https://commons.wikimedia.org/wiki/Special:Redirect/file/Desierto%20de%20La%20Tatacoa%20%28Tatacoa%20Desert%29.jpg");
+
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(12,48,30,0.90),
+      rgba(12,48,30,0.55),
+      rgba(0,0,0,0.35)
+    );
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 850px;
+  color: white;
+  animation: heroEntrance 1.2s ease;
+}
+
+.hero-small {
+  font-size: 14px;
+  letter-spacing: 5px;
+  font-weight: 700;
+  color: var(--yellow-light);
+}
+
+.hero h1 {
+  font-size: clamp(80px,15vw,170px);
+  line-height: 0.9;
+  margin: 15px 0;
+  font-weight: 800;
+}
+
+.hero h2 {
+  font-size: clamp(24px,4vw,44px);
+  margin-bottom: 25px;
+}
+
+.hero-description {
+  max-width: 650px;
+  margin: auto;
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+.hero-buttons {
+  margin-top: 35px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 30px;
+  color: white;
+  font-size: 30px;
+  animation: bounce 1.5s infinite;
+}
+
+
+/* =========================
+   BOTONES
+========================= */
+
+.button {
+  display: inline-block;
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 14px 25px;
+  border-radius: 50px;
+  font-weight: 700;
+  transition: 0.3s;
+}
+
+.button.primary {
+  background: var(--yellow);
+  color: white;
+}
+
+.button.primary:hover {
+  background: #c98512;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.button.secondary {
+  background: rgba(255,255,255,0.15);
+  color: white;
+  border: 1px solid rgba(255,255,255,0.5);
+}
+
+.button.secondary:hover {
+  background: white;
+  color: var(--green-dark);
+}
+
+
+/* =========================
+   SECCIONES
+========================= */
+
+.section {
+  max-width: 1200px;
+  margin: auto;
+  padding: 100px 25px;
+}
+
+.section-heading {
+  margin-bottom: 55px;
+}
+
+.section-heading span {
+  color: var(--yellow);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 3px;
+}
+
+.section-heading h2 {
+  color: var(--green-dark);
+  font-size: clamp(32px,5vw,50px);
+  margin-top: 10px;
+  line-height: 1.1;
+}
+
+.section-heading p {
+  color: var(--gray);
+  margin-top: 15px;
+  line-height: 1.7;
+}
+
+.section-heading.center {
+  text-align: center;
+}
+
+
+/* =========================
+   INTRO
+========================= */
+
+.intro-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.intro-image {
+  height: 430px;
+  overflow: hidden;
+  border-radius: 25px;
+  box-shadow: var(--shadow);
+}
+
+.intro-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.6s;
+}
+
+.intro-image:hover img {
+  transform: scale(1.05);
+}
+
+.intro-text h3 {
+  color: var(--green-dark);
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.intro-text p {
+  color: var(--gray);
+  line-height: 1.9;
+  margin-bottom: 20px;
+}
+
+.text-button {
+  display: inline-block;
+  color: var(--green);
+  text-decoration: none;
+  font-weight: 700;
+  margin-top: 10px;
+}
+
+.text-button:hover {
+  color: var(--yellow);
+}
+
+
+/* =========================
+   CULTURA
+========================= */
+
+.culture {
+  max-width: none;
+  background: white;
+}
+
+.culture > .section-heading,
+.culture-cards {
+  max-width: 1150px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.culture-cards {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 25px;
+}
+
+.culture-card {
+  padding: 40px 30px;
+  border-radius: 25px;
+  background: var(--cream);
+  border: 1px solid #eee;
+  transition: 0.4s;
+}
+
+.culture-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow);
+}
+
+.culture-icon {
+  width: 70px;
+  height: 70px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--green-light);
+  font-size: 35px;
+  margin-bottom: 25px;
+}
+
+.culture-card h3 {
+  color: var(--green-dark);
+  font-size: 22px;
+  margin-bottom: 12px;
+}
+
+.culture-card p {
+  color: var(--gray);
+  line-height: 1.8;
+}
+
+.info-button,
+.more-button {
+  margin-top: 20px;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  background: var(--green);
+  color: white;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.info-button:hover,
+.more-button:hover {
+  background: var(--yellow);
+}
+
+
+/* =========================
+   LUGARES
+========================= */
+
+.places {
+  max-width: none;
+  background: #f1eee4;
+}
+
+.places > .section-heading,
+.places-grid {
+  max-width: 1150px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.places-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 25px;
+}
+
+.place-card {
+  background: white;
+  border-radius: 25px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.07);
+  transition: 0.4s;
+}
+
+.place-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow);
+}
+
+.place-image {
+  height: 270px;
+  position: relative;
+  overflow: hidden;
+}
+
+.place-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.6s;
+}
+
+.place-card:hover .place-image img {
+  transform: scale(1.08);
+}
+
+.place-tag {
+  position: absolute;
+  left: 18px;
+  top: 18px;
+  background: white;
+  color: var(--green-dark);
+  padding: 8px 14px;
+  border-radius: 30px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.place-content {
+  padding: 28px;
+}
+
+.place-content h3 {
+  color: var(--green-dark);
+  font-size: 22px;
+  margin-bottom: 12px;
+}
+
+.place-content p {
+  color: var(--gray);
+  line-height: 1.7;
+}
+
+
+/* =========================
+   FESTIVAL
+========================= */
+
+.festival {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 650px;
+  background: var(--green-dark);
+  color: white;
+}
+
+.festival-image {
+  overflow: hidden;
+}
+
+.festival-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.8s;
+}
+
+.festival:hover .festival-image img {
+  transform: scale(1.04);
+}
+
+.festival-content {
+  padding: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.festival-content > span {
+  color: var(--yellow-light);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 3px;
+}
+
+.festival-content h2 {
+  font-size: clamp(35px,5vw,55px);
+  line-height: 1.1;
+  margin: 15px 0 25px;
+}
+
+.festival-content p {
+  color: #d9e3dc;
+  line-height: 1.8;
+  max-width: 600px;
+}
+
+.festival-features {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 15px;
+  margin: 35px 0;
+}
+
+.festival-features div {
+  text-align: center;
+  padding: 15px 5px;
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 15px;
+}
+
+.festival-features strong {
+  display: block;
+  font-size: 28px;
+  margin-bottom: 7px;
+}
+
+.festival-features span {
+  font-size: 12px;
+  color: #d9e3dc;
+}
+
+
+/* =========================
+   GASTRONOMÍA
+========================= */
+
+.food {
+  background: var(--cream);
+}
+
+.food-grid {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 20px;
+}
+
+.food-card {
+  background: white;
+  border-radius: 22px;
+  overflow: hidden;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+  transition: 0.4s;
+  padding-bottom: 30px;
+}
+
+.food-card:hover {
+  transform: translateY(-8px);
+}
+
+.food-image {
+  width: 100%;
+  height: 190px;
+  overflow: hidden;
+  background: #e8e3d7;
+}
+
+.food-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.6s;
+}
+
+.food-card:hover .food-image img {
+  transform: scale(1.08);
+}
+
+.food-emoji {
+  font-size: 38px;
+  margin-top: 15px;
+}
+
+.food-card h3 {
+  color: var(--green-dark);
+  margin: 8px 15px;
+}
+
+.food-card p {
+  color: var(--gray);
+  line-height: 1.7;
+  font-size: 14px;
+  padding: 0 20px;
+}
+
+
+/* =========================
+   GALERÍA
+========================= */
+
+.gallery-section {
+  padding: 100px 25px;
+  background: white;
+}
+
+.gallery-section .section-heading {
+  max-width: 1150px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.gallery {
+  max-width: 1150px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: 250px 250px;
+  gap: 15px;
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.gallery-item.large {
+  grid-row: span 2;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.6s;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.08);
+}
+
+.gallery-item div {
+  position: absolute;
+  left: 20px;
+  bottom: 18px;
+  color: white;
+  font-size: 18px;
+  font-weight: 700;
+  text-shadow: 0 2px 8px black;
+}
+
+
+/* =========================
+   FINAL
+========================= */
+
+.final-section {
+  min-height: 450px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 80px 25px;
+  color: white;
+
+  background:
+    linear-gradient(
+      rgba(18,61,41,0.88),
+      rgba(18,61,41,0.88)
+    ),
+    url("https://commons.wikimedia.org/wiki/Special:Redirect/file/Detalle%20de%20estatua%20del%20Parque%20Arqueol%C3%B3gico%20de%20San%20Agust%C3%ADn.jpg");
+
+  background-size: cover;
+  background-position: center;
+}
+
+.final-section span {
+  color: var(--yellow-light);
+  font-weight: 800;
+  letter-spacing: 5px;
+}
+
+.final-section h2 {
+  font-size: clamp(38px,7vw,70px);
+  margin: 15px 0;
+}
+
+.final-section p {
+  max-width: 600px;
+  margin: auto;
+  line-height: 1.8;
+  color: #dce5df;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+  padding: 60px 25px;
+  text-align: center;
+  color: white;
+  background: #0b291b;
+}
+
+footer h2 {
+  font-size: 35px;
+  margin-bottom: 12px;
+}
+
+footer p {
+  color: #bdcfc4;
+  margin-bottom: 20px;
+}
+
+footer small {
+  color: #7f998a;
+}
+
+
+/* =========================
+   MODAL
+========================= */
+
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 3000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(0,0,0,0.72);
+}
+
+.modal.active {
+  display: flex;
+}
+
+.modal-box {
+  width: 100%;
+  max-width: 520px;
+  background: white;
+  border-radius: 25px;
+  padding: 45px;
+  position: relative;
+  text-align: center;
+  animation: modalEntrance 0.35s ease;
+}
+
+.close-modal {
+  position: absolute;
+  right: 18px;
+  top: 12px;
+  border: none;
+  background: none;
+  font-size: 30px;
+  cursor: pointer;
+  color: #777;
+}
+
+.modal-icon {
+  font-size: 50px;
+  margin-bottom: 15px;
+}
+
+.modal-box h2 {
+  color: var(--green-dark);
+  margin-bottom: 15px;
+}
+
+.modal-box p {
+  color: var(--gray);
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+
+/* =========================
+   ANIMACIONES
+========================= */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes heroEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes modalEntrance {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes bounce {
+  0%,100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(10px);
+  }
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 900px) {
+
+  .menu-button {
+    display: block;
+  }
+
+  .nav-menu {
+    position: absolute;
+    top: 76px;
+    left: 0;
+    width: 100%;
+    background: white;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    padding: 15px 0;
+  }
+
+  .nav-menu.active {
+    display: flex;
+  }
+
+  .nav-menu li {
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-menu a {
+    display: block;
+    padding: 14px;
+  }
+
+  .intro-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .culture-cards,
+  .places-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .food-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .festival {
+    grid-template-columns: 1fr;
+  }
+
+  .festival-image {
+    height: 400px;
+  }
+
+  .festival-content {
+    padding: 60px 30px;
+  }
+}
+
+
+/* =========================
+   CELULAR
+========================= */
+
+@media (max-width: 600px) {
+
+  .hero h1 {
+    font-size: 85px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .button {
+    width: 100%;
+    max-width: 280px;
+    text-align: center;
+  }
+
+  .section {
+    padding: 70px 20px;
+  }
+
+  .culture-cards,
+  .places-grid,
+  .food-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .festival-features {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .gallery {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(5,230px);
+  }
+
+  .gallery-item.large {
+    grid-row: auto;
+  }
+
+  .modal-box {
+    padding: 35px 25px;
+  }
+}html {
+  height: 100%;
+  background: 50% 50% no-repeat
+    url('data:image/svg+xml,<svg viewBox="-20 -5 60 40" width="140" xmlns="http://www.w3.org/2000/svg" opacity="0.2"><path d="M1 8l11-7 11 7v8l-11 7-11-7zm0 0l11 8 11-8m0 8L12 8 1 16M12 1v7m0 8v7" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2"/><text x="-12" y="32" font-size="5" font-family="monospace" fill="currentColor">Built on CodePen</text></svg>');
+}
